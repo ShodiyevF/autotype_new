@@ -1,4 +1,5 @@
-const { inline_menu } = require('./inline.menu');
+const { chosenInitializer } = require('./inline/initializer.chosen');
+const { inline_menu } = require('./inline/inline.menu');
 const { statistic } = require('./statistic');
 const { uniqRow } = require('../../lib/pg');
 const { start } = require('./starter');
@@ -19,6 +20,7 @@ function botModulesInitializer(bot) {
     bot.onText(/\/statistic/, msg => statistic(bot, msg));
     bot.onText(/\/start/, msg => start(bot, msg));
     bot.on('inline_query', msg => inline_menu(bot, msg))
+    bot.on('chosen_inline_result', res => chosenInitializer(bot, res))
 
 }
 
