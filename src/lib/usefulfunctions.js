@@ -5,6 +5,9 @@ async function getOneInlineByTitle(title) {
     return inlines
 }
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 module.exports = {
-    getOneInlineByTitle
+    getOneInlineByTitle,
+    delay
 }
